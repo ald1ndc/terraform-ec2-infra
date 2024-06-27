@@ -9,6 +9,15 @@ resource "aws_instance" "public" {
   tags = {
     Name = "aldindc-ec2"    #Change to your name
   }
+
+  ebs_block_device {
+    device_name = "/dev/sdb"
+    volume_type = "gp3"
+    volume_size = 10
+    delete_on_termination = true
+    encrypted = true
+  }
+
 }
 
 
